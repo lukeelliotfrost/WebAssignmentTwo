@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>{{ $reviews->SportsPersonReview}}</h1>
+@extends('layout')
 
-  </body>
-</html>
+
+
+@section('content')
+
+
+
+
+@endsection
+
+@include('layouts.footer')

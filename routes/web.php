@@ -27,15 +27,11 @@ Route::get('register', function () {
     return view('register');
 });
 
-Route::get('/indivreviews', function () {
-    $indivreviews = DB::table('indivreviews')->latest()->get();
-    return view('indivreviews.index', compact('indivreviews'));
+Route::get('home', function () {
+    return view('home');
 });
 
-Route::get('/indivreviews/{review}', function ($id) {
-    $indivreviews = DB::table('indivreviews')->find($id);
-    return view('indivreviews.show', compact('indivreviews'));
-});
+
 
 Auth::routes();
 

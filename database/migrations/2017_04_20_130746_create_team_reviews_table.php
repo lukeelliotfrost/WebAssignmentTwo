@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIndividualReviewsTable extends Migration
+class CreateTeamReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateIndividualReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('indivreviews', function (Blueprint $table) {
+        Schema::create('team_reviews', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('user_id');
-          $table->text('SportsPersonReview');
+          $table->string('title');
+          $table->text('TeamReview');
           $table->rememberToken();
           $table->timestamps();
         });
@@ -29,6 +30,6 @@ class CreateIndividualReviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('indivreviews');
+        Schema::dropIfExists('team_reviews');
     }
 }

@@ -65,7 +65,8 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
-
+                                        <li><a href="{{ route('login') }}">Individual SportsPerson Reviews</a></li>
+                                        <li><a href="{{ route('register') }}">Team Reviews</a></li>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
