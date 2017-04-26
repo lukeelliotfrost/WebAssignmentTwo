@@ -15,7 +15,6 @@ class CreateTeamReviewsTable extends Migration
     {
         Schema::create('team_reviews', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('user_id');
           $table->string('title');
           $table->text('TeamReview');
           $table->rememberToken();

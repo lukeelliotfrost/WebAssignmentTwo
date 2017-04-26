@@ -15,7 +15,6 @@ class CreateIndivReviewsTable extends Migration
     {
         Schema::create('indiv_reviews', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
             $table->string('title');
             $table->text('SportsPersonReview');
             $table->rememberToken();

@@ -31,7 +31,18 @@ Route::get('home', function () {
     return view('home');
 });
 
+Route::get('/indivreviews/create', 'ReviewCRUDController@create');
+Route::post('/indivreviews', 'ReviewCRUDController@store');
+Route::get('/indivreviews/{indivreview}', 'ReviewCRUDController@show');
+Route::get('/indivreviews/index', 'ReviewCRUDController@index');
 
+// GET /indivreviews
+// GET /indivreviews/create
+// POST /indivreviews
+// GET /indivreviews/{id}/edit
+// GET /indivreviews/{id}
+// PATCH /indivreviews/{id}
+// Delete /indivreviews/{id}
 
 Auth::routes();
 

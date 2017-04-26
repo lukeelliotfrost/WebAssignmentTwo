@@ -15,10 +15,9 @@ class ReviewCRUDController extends Controller
      */
     public function index()
     {
-      $items = IndivReview::orderBy('id','DESC')->paginate(5);
-      return view('indivreviews.index',compact('indiv_reviews'))
-      ->with('i', ($request->input('page', 1) - 1) * 5);
-    }
+      $indivreviews = IndivReview::all();
+      return view('indivreviews.index', compact('indiv_reviews'));
+    } //indivreviews
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +27,7 @@ class ReviewCRUDController extends Controller
     public function create()
     {
       return view('indivreviews.create');
-    }
+    } // /indivreviews/create
 
     /**
      * Store a newly created resource in storage.
@@ -38,14 +37,21 @@ class ReviewCRUDController extends Controller
      */
     public function store(Request $request)
     {
-         $this->validate($request, [
+      $this->validate(request(), [
         'title' => 'required',
-        'SportsPersonReview' => 'required',
+        'SportsPersonReview' => 'required'
       ]);
 
-      IndivReview::create($request->all());
-      return redirect()->route('indivreviews.index')
-      ->with('success','Individual Review created successfully');
+      $indivreview = new IndivReview;
+
+      IndivReview::create([
+        'title' => request('title'),
+        'SportsPersonReview' =>('SportsPersonReview')
+      ]);
+
+      return redirect('/');
+
+
     }
 
     /**
@@ -56,9 +62,8 @@ class ReviewCRUDController extends Controller
      */
     public function show($id)
     {
-      $review = IndivReview::find($id);
-      return view('indivreviews.show',compact('indiv_reviews'));
-    }
+      return view('indivreviews.show');
+    } // GET /indivreviews/id
 
     /**
      * Show the form for editing the specified resource.
@@ -68,9 +73,9 @@ class ReviewCRUDController extends Controller
      */
     public function edit($id)
     {
-      $review = IndivReview::find($id);
+      $indivreviews= IndivReview::find($id);
       return view('indivreviews.edit',compact('indiv_reviews'));
-    }
+    } // GET /indivreviews/id/edit
 
     /**
      * Update the specified resource in storage.
@@ -81,15 +86,14 @@ class ReviewCRUDController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-      'title' => 'required',
-      'SportsPersonReview' => 'required',
+      $this->validate($request, [
+        'title' => 'required',
+        'SportsPersonReview' => 'required',
       ]);
-
       IndivReview::find($id)->update($request->all());
-      return redirect()->route('indivreviews.index')
-      ->with('success','Individual Review updated successfully');
-    }
+      return redirect()->route('indivreviews.home')
+              ->with('success','Review updated successfully');
+    } // PATCH /indivreviews/id
 
     /**
      * Remove the specified resource from storage.
@@ -100,7 +104,7 @@ class ReviewCRUDController extends Controller
     public function destroy($id)
     {
       IndivReview::find($id)->delete();
-      return redirect()->route('indivreviews.index')
-      ->with('success','Individual Review deleted successfully');
-    }
+      return redirect()->route('indivreviews.home')
+                ->with('success','Review deleted successfully');
+    } // Delete /tasks/id
 }
