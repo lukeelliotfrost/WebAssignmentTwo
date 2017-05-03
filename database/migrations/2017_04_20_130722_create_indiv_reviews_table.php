@@ -13,7 +13,7 @@ class CreateIndivReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('indiv_reviews', function (Blueprint $table) {
+        Schema::create('indivreviews', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->text('SportsPersonReview');
