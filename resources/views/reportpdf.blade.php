@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="css/pdf.css">
 </head>
 <body>
-  
+
 <h1>Individual Reviews Database</h1>
 
 <table>

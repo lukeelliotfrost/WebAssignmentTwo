@@ -19,7 +19,6 @@
 
       <!-- Custom styles for this template -->
       <link href="main.css" rel="stylesheet">
-      {!! Charts::assets() !!}
     </head>
 
     <body>

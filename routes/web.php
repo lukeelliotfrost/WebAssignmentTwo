@@ -27,10 +27,10 @@ Route::get('register', function () {
     return view('register');
 });
 
-Route::get('pdf', function() {
+Route::get('reviewpdf', function() {
   $reviews = App\IndivReview::all();
 
-  $pdf = PDF::loadView('pdf', ['reviews' => $reviews]);
+  $pdf = PDF::loadView('reportpdf', ['reviews' => $reviews]);
   return $pdf->download('data.pdf');
 });
 
