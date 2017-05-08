@@ -27,7 +27,12 @@ Route::get('register', function () {
     return view('register');
 });
 
+Route::get('pdf', function() {
+  $reviews = App\IndivReview::all();
 
+  $pdf = PDF::loadView('pdf', ['reviews' => $reviews]);
+  return $pdf->download('data.pdf');
+});
 
 Route::get('indivreviews/index', 'ReviewCRUDController@index');
 Route::get('indivreviews/create', 'ReviewCRUDController@create');
@@ -36,6 +41,7 @@ Route::get('indivreviews/edit/{review}', 'ReviewCRUDController@edit');
 Route::post('indivreviews/edit/{review}', 'ReviewCRUDController@update');
 Route::get('indivreviews/delete/{review}', 'ReviewCRUDController@destroy');
 Route::get('indivreviews/{review}', 'ReviewCRUDController@show');
+
 
 
 

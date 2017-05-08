@@ -38,12 +38,12 @@
             <textarea name="title" class="form-control"></textarea>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <div class="form-group">
-              <strong>Review:</strong>
-              <textarea name="SportsPersonReview" class="form-control"></textarea>
-          </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Review:</strong>
+            <textarea name="SportsPersonReview" class="form-control"></textarea>
         </div>
+      </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
           <button type="submit" class="btn btn-primary">Submit</button>
