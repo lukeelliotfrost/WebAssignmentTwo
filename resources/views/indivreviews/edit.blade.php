@@ -3,15 +3,14 @@
 @section('content')
 
   <div class="row">
-            <form action="/indivreviews/{{$indivreviews->id}}" method="POST">
+            <form action="/indivreviews/edit/{{$review->id}}" method="POST">
               {{ csrf_field() }}
-              {{ method_field('patch') }}
 
               <div class="form-group">
-                <textarea name="body" class="form-control">{{ $indivreviews->title }}</textarea>
+                <textarea name="title" class="form-control">{{ $review->title }}</textarea>
               </div>
               <div class="form-group">
-                <textarea name="body" class="form-control">{{ $indivreviews->SportsPersonReview }}</textarea>
+                <textarea name="SportsPersonReview" class="form-control">{{ $review->SportsPersonReview }}</textarea>
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Update Review</button>

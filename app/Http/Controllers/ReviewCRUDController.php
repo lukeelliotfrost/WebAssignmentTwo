@@ -44,8 +44,7 @@ class ReviewCRUDController extends Controller
       ]);
 
       IndivReview::create($request->all());
-            return redirect()->route('indivreviews.index')
-                            ->with('success','Review created successfully');
+            return back()->with('success','Review created successfully');
 
 
     }
@@ -56,9 +55,8 @@ class ReviewCRUDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(IndivReview $review)
     {
-      $review = IndivReview::find($id);
       return view('indivreviews.show', compact('review'));
     }
 
@@ -68,10 +66,9 @@ class ReviewCRUDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(IndivReview $review)
     {
-      $indivreviews= IndivReview::find($id);
-      return view('indivreviews.edit',compact('indivreviews'));
+      return view('indivreviews.edit',compact('review'));
     }
 
     /**
@@ -81,16 +78,15 @@ class ReviewCRUDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, IndivReview $review)
     {
       $this->validate($request, [
         'title' => 'required',
         'SportsPersonReview' => 'required',
       ]);
 
-      IndivReview::find($id)->update($request->all());
-      return redirect()->route('indivreviews.index')
-              ->with('success','Review updated successfully');
+      $review->update($request->all());
+      return back();
     }
 
     /**
@@ -99,10 +95,10 @@ class ReviewCRUDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(IndivReview $review)
     {
-      IndivReview::find($id)->delete();
-      return redirect()->route('indivreviews.index')
-                ->with('success','Review deleted successfully');
+
+      $review->delete();
+      return back()->with('success','Review deleted successfully');
     }
 }

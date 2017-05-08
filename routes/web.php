@@ -28,8 +28,14 @@ Route::get('register', function () {
 });
 
 
-Route::resource('indivreviews', 'ReviewCRUDController');
 
+Route::get('indivreviews/index', 'ReviewCRUDController@index');
+Route::get('indivreviews/create', 'ReviewCRUDController@create');
+Route::post('indivreviews/create', 'ReviewCRUDController@store');
+Route::get('indivreviews/edit/{review}', 'ReviewCRUDController@edit');
+Route::post('indivreviews/edit/{review}', 'ReviewCRUDController@update');
+Route::get('indivreviews/delete/{review}', 'ReviewCRUDController@destroy');
+Route::get('indivreviews/{review}', 'ReviewCRUDController@show');
 
 
 
