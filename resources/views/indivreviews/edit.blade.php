@@ -2,7 +2,9 @@
 
 @section('content')
 
-  <div class="row">
+
+  
+      <div class="row">
             <form action="/indivreviews/edit/{{$review->id}}" method="POST">
               {{ csrf_field() }}
 

@@ -34,6 +34,9 @@ Route::get('reviewpdf', function() {
   return $pdf->download('data.pdf');
 });
 
+Route::get('charts', 'ChartController@getLaraChart');
+
+
 Route::get('indivreviews/index', 'ReviewCRUDController@index');
 Route::get('indivreviews/create', 'ReviewCRUDController@create');
 Route::post('indivreviews/create', 'ReviewCRUDController@store');
