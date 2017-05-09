@@ -35,7 +35,7 @@ Route::get('reviewpdf', function() {
 });
 
 Route::get('charts', 'ChartController@getLaraChart');
-
+Route::get('gcharts', 'ChartController@getGaugeChart');
 
 Route::get('indivreviews/index', 'ReviewCRUDController@index');
 Route::get('indivreviews/create', 'ReviewCRUDController@create');
