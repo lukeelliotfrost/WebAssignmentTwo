@@ -9,6 +9,10 @@
 
                 <div class="panel-body">
                     You are logged in!
+                    <a class="btn btn-info" href="/indivreviews/index">Reviews</a>
+                    <a class="btn btn-primary" href="/reviewpdf">Download PDF</a>
+                    <a class="btn btn-primary" href="/charts">Chart 1</a>
+                    <a class="btn btn-primary" href="/gcharts">Chart 2</a>
                 </div>
             </div>
         </div>

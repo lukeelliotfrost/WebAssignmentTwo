@@ -2,8 +2,17 @@
 
 @section('content')
 
+  <div class="row">
+      <div class="col-lg-12 margin-tb">
+          <div class="pull-left">
+              <h2>Edit Review</h2>
+          </div>
+          <div class="pull-right">
+              <a class="btn btn-success" href="/indivreviews/index"> Reviews</a>
+          </div>
+      </div>
+  </div>
 
-  
       <div class="row">
             <form action="/indivreviews/edit/{{$review->id}}" method="POST">
               {{ csrf_field() }}
